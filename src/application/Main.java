@@ -1,26 +1,50 @@
 package application;
-	
-import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
+import Model.Fahrrad;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class Main extends Application {
-	@Override
-	public void start(Stage primaryStage) {
-		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+	@Override
+	public void start(Stage stage) {
+
+		TableView<Fahrrad> table = new TableView<Fahrrad>();
+
+		TableColumn<Fahrrad, String> bezeichnung = new TableColumn<Fahrrad, String>("Bezeichung");
+		
+		TableColumn<Fahrrad, String> name = new TableColumn<Fahrrad, String>("Name");
+
+		TableColumn<Fahrrad, String> artikelnummer//
+				= new TableColumn<Fahrrad, String>("Artikelnummer");
+		
+		bezeichnung.getColumns().addAll(name,artikelnummer);
+
+		TableColumn<Fahrrad, String> farbe//
+				= new TableColumn<Fahrrad, String>("Farbe");
+
+		TableColumn<Fahrrad, Integer> zoll //
+				= new TableColumn<Fahrrad, Integer>("Zoll");
+
+		table.getColumns().addAll(bezeichnung, farbe, zoll);
+
+		StackPane root = new StackPane();
+		root.setPadding(new Insets(3));
+		root.getChildren().add(table);
+
+		stage.setTitle("TableView (Fahrrad)");
+
+		Scene scene = new Scene(root, 450, 300);
+		stage.setScene(scene);
+		stage.show();
 	}
 }

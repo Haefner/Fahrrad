@@ -25,5 +25,10 @@ public class Verwaltung {
 		verwaltung.add(new RadVerwaltung(rad, anzahlLager, anzahlVerkauft, date));
 	}
 	
+	
+	public List<RadVerwaltung> getRadListe()
+	{
+		return verwaltung;
+	}
 
 }
