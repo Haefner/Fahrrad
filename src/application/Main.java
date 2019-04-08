@@ -18,27 +18,25 @@ public class Main extends Application {
 		launch(args);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void start(Stage stage) {
 
 		TableView<Fahrrad> table = new TableView<Fahrrad>();
 
+		TableColumn<Fahrrad, String> typ = new TableColumn<Fahrrad, String>("Typ");
+
+		TableColumn<Fahrrad, String> farbe = new TableColumn<Fahrrad, String>("Farbe");
+
+		TableColumn<Fahrrad, Integer> zoll = new TableColumn<Fahrrad, Integer>("Zoll");
+
 		TableColumn<Fahrrad, String> bezeichnung = new TableColumn<Fahrrad, String>("Bezeichung");
 
 		TableColumn<Fahrrad, String> name = new TableColumn<Fahrrad, String>("Name");
 
-		TableColumn<Fahrrad, String> artikelnummer//
-				= new TableColumn<Fahrrad, String>("Artikelnummer");
-		TableColumn<Fahrrad, String> typ//
-				= new TableColumn<Fahrrad, String>("Typ");
+		TableColumn<Fahrrad, String> artikelnummer = new TableColumn<Fahrrad, String>("Artikelnummer");
 
 		bezeichnung.getColumns().addAll(name, artikelnummer);
-
-		TableColumn<Fahrrad, String> farbe//
-				= new TableColumn<Fahrrad, String>("Farbe");
-
-		TableColumn<Fahrrad, Integer> zoll //
-				= new TableColumn<Fahrrad, Integer>("Zoll");
 
 		table.getColumns().addAll(bezeichnung, typ, farbe, zoll);
 
