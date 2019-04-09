@@ -7,8 +7,11 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -41,7 +44,8 @@ public class Main extends Application {
 		table.getColumns().addAll(bezeichnung, typ, farbe, zoll);
 
 		// Definiere, welcher Wert des Objektes Fahrrad zu welcher Tabellenzeile gehört
-		name.setCellValueFactory(new PropertyValueFactory<>("name"));
+		name.setCellValueFactory(new PropertyValueFactory<Fahrrad, String>("name"));
+		
 		artikelnummer.setCellValueFactory(new PropertyValueFactory<>("artikelnummer"));
 		typ.setCellValueFactory(new PropertyValueFactory<>("typ"));
 		farbe.setCellValueFactory(new PropertyValueFactory<>("farbe"));
@@ -49,6 +53,18 @@ public class Main extends Application {
 
 		// Füge einträge hinzu
 		table.setItems(getRadList());
+		
+		//Ändern der Tabelle
+		table.setEditable(true);
+		name.setCellFactory(TextFieldTableCell.<Fahrrad>forTableColumn());
+		name.setOnEditCommit((CellEditEvent<Fahrrad, String> event) ->{
+			String newName= event.getNewValue();
+			TablePosition<Fahrrad, String> pos = event.getTablePosition();
+			int row=pos.getRow();
+			Fahrrad r = event.getTableView().getItems().get(row);
+			r.setName(newName);
+			
+		});
 
 		StackPane root = new StackPane();
 		root.setPadding(new Insets(3));
