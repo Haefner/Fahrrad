@@ -66,7 +66,6 @@ public class MainMitFXML extends Application {
 
             // Give the controller access to the main app.
             FahradOverviewController controller = loader.getController();
-            controller.setMainApp(this);
 
         } catch (IOException e) {
             e.printStackTrace();

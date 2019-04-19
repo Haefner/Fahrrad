@@ -8,12 +8,15 @@ import javafx.collections.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class FahradOverviewController implements Initializable {
 	@FXML
-    private TableView<Fahrrad> fahrradTablle;
+	private TableView<Fahrrad> fahrradTablle;
 	@FXML
 	private TableColumn<Fahrrad, String> typ;
 	@FXML
@@ -33,42 +36,45 @@ public class FahradOverviewController implements Initializable {
 	 */
 	public FahradOverviewController() {
 	}
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		initialize();
+		ordneTabellenzeilenZuVariablenDesObjektes();
 		fahrradTablle.setItems(getRadList());
-		
+
 	}
 
 	/**
-	 * Initializes the controller class. This method is automatically called after
-	 * the fxml file has been loaded.
+	 * Definiere, welcher Wert des Objektes Fahrrad zu welcher Tabellenzeile gehört
 	 */
-	@FXML
-	private void initialize() {
-		// Definiere, welcher Wert des Objektes Fahrrad zu welcher Tabellenzeile gehört
-		// Definiere, welcher Wert des Objektes Fahrrad zu welcher Tabellenzeile gehört
-				name.setCellValueFactory(new PropertyValueFactory<Fahrrad, String>("name"));
-				artikelnummer.setCellValueFactory(new PropertyValueFactory<>("artikelnummer"));
-				typ.setCellValueFactory(new PropertyValueFactory<>("typ"));
-				farbe.setCellValueFactory(new PropertyValueFactory<>("farbe"));
-				zoll.setCellValueFactory(new PropertyValueFactory<>("zoll"));
+	private void ordneTabellenzeilenZuVariablenDesObjektes() {
+		name.setCellValueFactory(new PropertyValueFactory<Fahrrad, String>("name"));
+		artikelnummer.setCellValueFactory(new PropertyValueFactory<>("artikelnummer"));
+		typ.setCellValueFactory(new PropertyValueFactory<>("typ"));
+		farbe.setCellValueFactory(new PropertyValueFactory<>("farbe"));
+		zoll.setCellValueFactory(new PropertyValueFactory<>("zoll"));
 	}
 	
-	 /**
-     * Is called by the main application to give a reference back to itself.
-     * 
-     * @param mainApp
-     */
-    public void setMainApp(MainMitFXML mainApp) {
-        this.mainApp = mainApp;
+	/**
+	 * Ermöglicht, dass der Name des Fahrrades auf der Oberfläche geändert werden kann
+	 */
+	private void aenderungDerOberflaeche() {
+		//Allgemein das ändern in der Tabelle ermöglichen
+		fahrradTablle.setEditable(true);
+		//Definiert, das die Tabellenzelle änderbar ist
+		name.setCellFactory(TextFieldTableCell.<Fahrrad>forTableColumn());
+		//Sorgt dafür, dass die Änderungen an der Oberfläche registriert werden
+		name.setOnEditCommit((CellEditEvent<Fahrrad, String> event) -> {
+			String newName = event.getNewValue();
+			TablePosition<Fahrrad, String> pos = event.getTablePosition();
+			int row = pos.getRow();
+			Fahrrad r = event.getTableView().getItems().get(row);
+			r.setName(newName);
 
-        // Add observable list data to the table
-        
-    }
-    
-    private ObservableList<Fahrrad> getRadList() {
+		});
+	}
+
+	private ObservableList<Fahrrad> getRadList() {
 		Fahrrad rad1 = new Fahrrad("Green Bike", "1234", "Cityrad", "Grün", 28);
 		Fahrrad rad2 = new Fahrrad("Blitz", "1245", "Rennrad", "Gelb", 28);
 		Fahrrad rad3 = new Fahrrad("Pink Bike", "12456", "Mountainbike", "Pink", 28);
@@ -77,5 +83,4 @@ public class FahradOverviewController implements Initializable {
 		return list;
 	}
 
-	
 }
