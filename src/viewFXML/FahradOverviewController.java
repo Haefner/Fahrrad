@@ -38,7 +38,7 @@ public class FahradOverviewController{
 	}
 
 	@FXML
-	public void initialize() {
+	private void initialize() {
 		ordneTabellenzeilenZuVariablenDesObjektes();
 		fahrradTablle.setItems(getRadList());
 		aenderungDerOberflaeche();
