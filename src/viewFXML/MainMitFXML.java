@@ -16,7 +16,6 @@ public class MainMitFXML extends Application {
 		launch(args);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void start(Stage stage) {
 		stage.setTitle("TableView (Fahrrad)");
