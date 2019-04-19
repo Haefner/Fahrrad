@@ -10,8 +10,7 @@ import javafx.stage.Stage;
 
 public class MainMitFXML extends Application {
 
-	private Stage primaryStage;
-	private AnchorPane rootLayout;
+	
 
 	public static void main(String[] args) {
 		launch(args);
@@ -20,18 +19,17 @@ public class MainMitFXML extends Application {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void start(Stage stage) {
-		this.primaryStage = stage;
-		this.primaryStage.setTitle("TableView (Fahrrad)");
+		stage.setTitle("TableView (Fahrrad)");
 		try {
 			// Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainMitFXML.class.getResource("tabelle.fxml"));
-			rootLayout = (AnchorPane) loader.load();
+			AnchorPane rootLayout = (AnchorPane) loader.load();
 
-			// Show the scene containing the root layout.
+			//Fügt dem Fenster die Zene mit der Tabelle hinzuhinzu
 			Scene scene = new Scene(rootLayout);
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			stage.setScene(scene);
+			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

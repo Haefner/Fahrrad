@@ -46,10 +46,9 @@ public class Main extends Application {
 		generriereTabellenUndUeberschriften();
 		ordneTabellenzeilenZuVariablenDesObjektes();
 		aenderungDerOberflaeche();
-
+		
 		AnchorPane root = new AnchorPane();
 		root.setPadding(new Insets(3));
-		
 		// Fuege Eintraege hinzu
 		fahrradTablle.setItems(getRadList());
 		root.getChildren().add(fahrradTablle);
