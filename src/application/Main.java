@@ -53,7 +53,7 @@ public class Main extends Application {
 		fahrradTablle.setItems(getRadList());
 		root.getChildren().add(fahrradTablle);
 		
-		//Fügt dem Fenster die Zene mit der Tabelle hinzuhinzu
+		//Fügt dem Fenster die Szene mit der Tabelle hinzuhinzu
 		Scene scene = new Scene(root, 450, 300);
 		stage.setScene(scene);
 		stage.show();
