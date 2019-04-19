@@ -11,8 +11,8 @@
         <columns>
           <TableColumn prefWidth="75.0" text="Bezeichnung">
                <columns>
-                  <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="artikelnummer" minWidth="-1.0" prefWidth="150.0" text="Artikelnummer" />
+                  <TableColumn fx:id="name" prefWidth="75.0" text="Name"/>
+                  <TableColumn fx:id="artikelnummer" minWidth="-1.0" prefWidth="150.0" text="Artikelnummer" onEditCommit="#aenderArtikelnummer"/>
                </columns>
             </TableColumn>
           <TableColumn fx:id="typ" prefWidth="75.0" text="Typ" />

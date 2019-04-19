@@ -71,8 +71,19 @@ public class FahradOverviewController{
 			int row = pos.getRow();
 			Fahrrad r = event.getTableView().getItems().get(row);
 			r.setName(newName);
-
 		});
+		
+		artikelnummer.setCellFactory(TextFieldTableCell.<Fahrrad>forTableColumn());
+	}
+	
+	@FXML
+	public void aenderArtikelnummer(CellEditEvent<Fahrrad, String> event)
+	{
+		String newName = event.getNewValue();
+		TablePosition<Fahrrad, String> pos = event.getTablePosition();
+		int row = pos.getRow();
+		Fahrrad r = event.getTableView().getItems().get(row);
+		r.setArtikelnummer(newName);
 	}
 
 	private ObservableList<Fahrrad> getRadList() {
