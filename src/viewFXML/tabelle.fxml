@@ -7,12 +7,12 @@
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
 			fx:controller="viewFXML.FahradOverviewController">
    <children>
-      <TableView fx:id="fahrradTablle" editable="true" prefHeight="516.0" prefWidth="541.0">
+      <TableView fx:id="fahrradTablle" prefHeight="516.0" prefWidth="541.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Bezeichnung">
                <columns>
                   <TableColumn fx:id="name" prefWidth="75.0" text="Name"/>
-                  <TableColumn fx:id="artikelnummer" minWidth="-1.0" prefWidth="150.0" text="Artikelnummer" onEditCommit="#aenderArtikelnummer"/>
+                  <TableColumn fx:id="artikelnummer" prefWidth="150.0" text="Artikelnummer" onEditCommit="#aenderArtikelnummer"/>
                </columns>
             </TableColumn>
           <TableColumn fx:id="typ" prefWidth="75.0" text="Typ" />

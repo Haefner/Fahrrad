@@ -62,13 +62,12 @@ public class FahradOverviewController{
 	private void aenderungDerOberflaeche() {
 		//Allgemein das ändern in der Tabelle ermöglichen
 		fahrradTablle.setEditable(true);
-		//Definiert, das die Tabellenzelle änderbar ist
+		//Fügt der Tabellenzeile einen Editor zur Textänderung hinzu
 		name.setCellFactory(TextFieldTableCell.<Fahrrad>forTableColumn());
 		//Sorgt dafür, dass die Änderungen an der Oberfläche registriert werden
 		name.setOnEditCommit((CellEditEvent<Fahrrad, String> event) -> {
 			String newName = event.getNewValue();
-			TablePosition<Fahrrad, String> pos = event.getTablePosition();
-			int row = pos.getRow();
+			int row  = event.getTablePosition().getRow();
 			Fahrrad r = event.getTableView().getItems().get(row);
 			r.setName(newName);
 		});
@@ -80,8 +79,7 @@ public class FahradOverviewController{
 	public void aenderArtikelnummer(CellEditEvent<Fahrrad, String> event)
 	{
 		String newName = event.getNewValue();
-		TablePosition<Fahrrad, String> pos = event.getTablePosition();
-		int row = pos.getRow();
+		int row  = event.getTablePosition().getRow();
 		Fahrrad r = event.getTableView().getItems().get(row);
 		r.setArtikelnummer(newName);
 	}
