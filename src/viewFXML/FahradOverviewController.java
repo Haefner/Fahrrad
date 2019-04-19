@@ -14,7 +14,7 @@ import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
-public class FahradOverviewController implements Initializable {
+public class FahradOverviewController{
 	@FXML
 	private TableView<Fahrrad> fahrradTablle;
 	@FXML
@@ -37,8 +37,8 @@ public class FahradOverviewController implements Initializable {
 	public FahradOverviewController() {
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	@FXML
+	public void initialize() {
 		ordneTabellenzeilenZuVariablenDesObjektes();
 		fahrradTablle.setItems(getRadList());
 		aenderungDerOberflaeche();
