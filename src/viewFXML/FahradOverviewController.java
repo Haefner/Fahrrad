@@ -21,7 +21,7 @@ public class FahradOverviewController{
 	@FXML
 	private TableView<Fahrrad> fahrradTablle;
 	@FXML
-	private TableColumn<Fahrrad, String> typ;
+	private TableColumn<Fahrrad, Typ> typ;
 	@FXML
 	private TableColumn<Fahrrad, String> farbe;
 	@FXML
@@ -82,7 +82,8 @@ public class FahradOverviewController{
 	public void aenderArtikelnummer(CellEditEvent<Fahrrad, String> event)
 	{
 		String newName = event.getNewValue();
-		int row  = event.getTablePosition().getRow();
+		//int row  = event.getTablePosition().getRow();
+		int row =fahrradTablle.getSelectionModel().getSelectedIndex();
 		Fahrrad r = event.getTableView().getItems().get(row);
 		r.setArtikelnummer(newName);
 	}
