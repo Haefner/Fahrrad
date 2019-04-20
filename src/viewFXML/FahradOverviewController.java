@@ -5,17 +5,24 @@ import java.util.ResourceBundle;
 
 import Model.Fahrrad;
 import Model.Typ;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.Callback;
 
 public class FahradOverviewController{
 	@FXML
@@ -45,6 +52,7 @@ public class FahradOverviewController{
 		ordneTabellenzeilenZuVariablenDesObjektes();
 		fahrradTablle.setItems(getRadList());
 		aenderungDerOberflaeche();
+		contextMenuDelete();
 
 	}
 
@@ -76,6 +84,32 @@ public class FahradOverviewController{
 		});
 		
 		artikelnummer.setCellFactory(TextFieldTableCell.<Fahrrad>forTableColumn());
+	}
+	
+	private void contextMenuDelete()
+	{
+		 fahrradTablle.setRowFactory(new Callback<TableView<Fahrrad>, TableRow<Fahrrad>>() {  
+	            @Override  
+	            public TableRow<Fahrrad> call(TableView<Fahrrad> tableView) {  
+	                final TableRow<Fahrrad> row = new TableRow<>();  
+	                final ContextMenu contextMenu = new ContextMenu();  
+	                final MenuItem removeMenuItem = new MenuItem("Löschen");  
+	                removeMenuItem.setOnAction(new EventHandler<ActionEvent>() {  
+	                    @Override  
+	                    public void handle(ActionEvent event) {  
+	                    	fahrradTablle.getItems().remove(row.getItem());  
+	                    }  
+	                });  
+	                contextMenu.getItems().add(removeMenuItem);  
+	               // Set context menu on row, but use a binding to make it only show for non-empty rows:  
+	                row.contextMenuProperty().bind(  
+	                        Bindings.when(row.emptyProperty())  
+	                        .then((ContextMenu)null)  
+	                        .otherwise(contextMenu)  
+	                );  
+	                return row ;  
+	            }  
+	        });  
 	}
 	
 	@FXML
