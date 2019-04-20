@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Model.Fahrrad;
+import Model.Typ;
 import javafx.collections.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -85,9 +86,9 @@ public class FahradOverviewController{
 	}
 
 	private ObservableList<Fahrrad> getRadList() {
-		Fahrrad rad1 = new Fahrrad("Green Bike", "1234", "Cityrad", "Grün", 28);
-		Fahrrad rad2 = new Fahrrad("Blitz", "1245", "Rennrad", "Gelb", 28);
-		Fahrrad rad3 = new Fahrrad("Pink Bike", "12456", "Mountainbike", "Pink", 28);
+		Fahrrad rad1 = new Fahrrad("Green Bike", "1234", Typ.CITYRAD, "Grün", 28);
+		Fahrrad rad2 = new Fahrrad("Blitz", "1245", Typ.MOUNTAINBIKE, "Gelb", 28);
+		Fahrrad rad3 = new Fahrrad("Pink Bike", "12456", Typ.RENNRAD, "Pink", 28);
 
 		ObservableList<Fahrrad> list = FXCollections.observableArrayList(rad1, rad2, rad3);
 		return list;

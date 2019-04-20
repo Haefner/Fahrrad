@@ -3,11 +3,11 @@ package Model;
 public class Fahrrad {
 	private String name;
 	private String artikelnummer;
-	private String typ;
+	private Typ typ;
 	private String farbe;
 	private int zoll;
 
-	public Fahrrad(String name, String artikelnummer, String typ, String farbe, int zoll) {
+	public Fahrrad(String name, String artikelnummer, Typ typ, String farbe, int zoll) {
 		super();
 		this.name = name;
 		this.artikelnummer = artikelnummer;
@@ -16,11 +16,11 @@ public class Fahrrad {
 		this.typ = typ;
 	}
 
-	public String getTyp() {
+	public Typ getTyp() {
 		return typ;
 	}
 
-	public void setTyp(String typ) {
+	public void setTyp(Typ typ) {
 		this.typ = typ;
 	}
 

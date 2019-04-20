@@ -7,17 +7,17 @@
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
 			fx:controller="viewFXML.FahradOverviewController">
    <children>
-      <TableView fx:id="fahrradTablle" prefHeight="516.0" prefWidth="541.0">
+      <TableView fx:id="fahrradTablle" prefWidth="750.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Bezeichnung">
+          <TableColumn prefWidth="300.0" text="Bezeichnung">
                <columns>
-                  <TableColumn fx:id="name" prefWidth="75.0" text="Name"/>
+                  <TableColumn fx:id="name" prefWidth="150.0" text="Name"/>
                   <TableColumn fx:id="artikelnummer" prefWidth="150.0" text="Artikelnummer" onEditCommit="#aenderArtikelnummer"/>
                </columns>
             </TableColumn>
-          <TableColumn fx:id="typ" prefWidth="75.0" text="Typ" />
-            <TableColumn fx:id="farbe" prefWidth="75.0" text="Farbe" />
-            <TableColumn fx:id="zoll" prefWidth="75.0" text="Zoll" />
+          <TableColumn fx:id="typ" prefWidth="150.0" text="Typ" />
+            <TableColumn fx:id="farbe" prefWidth="150.0" text="Farbe" />
+            <TableColumn fx:id="zoll" prefWidth="150.0" text="Zoll" />
         </columns>
       </TableView>
    </children>
