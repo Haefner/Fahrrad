@@ -17,9 +17,8 @@ public class AppStart extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
 		primaryStage.setTitle("Fahradverwaltung Login");
-		primaryStage.setScene(new Scene(root, 200, 400));
+		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
-		
 		
 	}
 

@@ -2,16 +2,15 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?> 
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.PasswordField?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appStart.LoginController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="appStart.LoginController" prefHeight="400" prefWidth="400">
 	<children>
       <TextField  fx:id="benutzer" layoutX="100" layoutY="150" prefHeight="35" prefWidth="200" promptText="Benutzer"/>
       <PasswordField   fx:id="passwort" layoutX="100" layoutY="200" onAction="#handleLoginButtonOnAction" prefHeight="35.0" prefWidth="200" promptText="Passwort"/>
-      <Button  fx:id="btnLogin" layoutX="100" layoutY="278.0" onAction="#handleLoginButtonOnAction" prefHeight="40.0" prefWidth="90.0" styleClass="login-button" text="Login" />
-      <Button  fx:id="btnCancel" layoutX="250" layoutY="278.0" onAction="#handleCancelButtonOnAction" prefHeight="40.0" prefWidth="90.0" styleClass="login-button" text="Cancel" />
+      <Button  fx:id="btnLogin" layoutX="100" layoutY="278.0" onAction="#handleLoginButtonOnAction" prefHeight="40.0" prefWidth="90.0" text="Login" />
+      <Button  fx:id="btnCancel" layoutX="250" layoutY="278.0" onAction="#handleCancelButtonOnAction" prefHeight="40.0" prefWidth="90.0" text="Cancel" />
 </children>
 </AnchorPane>
 
