@@ -151,6 +151,7 @@ public class FahradOverviewController {
 		nameNeu.clear();
 		artikelnummerNeu.clear();
 		zollNeu.clear();
+		farbeNeu.clear();
 		fahrradTablle.getItems().add(rad1);
 	}
 	
