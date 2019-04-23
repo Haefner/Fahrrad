@@ -1,6 +1,7 @@
 package appStart;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
 
 import javafx.application.Platform;
@@ -21,7 +22,7 @@ import javafx.stage.Stage;
 import viewFXML.MainMitFXML;
 
 
-public class LoginController  {
+public class LoginController {
 	
 
 	@FXML
@@ -78,6 +79,7 @@ public class LoginController  {
 		stage.show();
 	}
 	
+	
 	/**
 	 * Löst einen Alarm aus, welcher nach einer Bestätigung das Programm beendet
 	 * 
@@ -110,5 +112,4 @@ public class LoginController  {
 		alert.setContentText(e.getStackTrace().toString());
 		alert.showAndWait();
 	}
-
 }

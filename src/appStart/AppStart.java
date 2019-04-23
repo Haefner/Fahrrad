@@ -19,7 +19,6 @@ public class AppStart extends Application {
 		primaryStage.setTitle("Fahradverwaltung Login");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
-		
 	}
 
 }
