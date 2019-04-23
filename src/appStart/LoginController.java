@@ -77,6 +77,7 @@ public class LoginController {
 		Scene scene = new Scene(rootLayout);
 		stage.setScene(scene);
 		stage.show();
+		
 	}
 	
 	
