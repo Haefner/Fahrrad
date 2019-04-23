@@ -12,6 +12,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -24,6 +30,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class FahradOverviewController {
@@ -51,10 +58,7 @@ public class FahradOverviewController {
 	private TextField farbeNeu;
 	@FXML
 	private TextField zollNeu;
-
-	// Reference to the main application.
-	private MainMitFXML mainApp;
-
+	
 	/**
 	 * The constructor. The constructor is called before the initialize() method.
 	 */
@@ -159,5 +163,58 @@ public class FahradOverviewController {
 		typNeu.getItems().addAll(Typ.values());
 		
 	}
+	
+	@FXML
+	public void diagramm(ActionEvent event)
+	{
+		 final CategoryAxis xAxis = new CategoryAxis();
+	        final NumberAxis yAxis = new NumberAxis();
+	        //creating the chart
+	        
+	        xAxis.setLabel("Monat");
+	        yAxis.setLabel("Verkaufte Räder");
+	        final LineChart<String,Number> lineChart = new LineChart<String,Number>(xAxis,yAxis);
+			
+	        XYChart.Series series = new XYChart.Series();
+	        series.setName("2017");
+	        series.getData().add(new XYChart.Data("Januar", 10));
+	        series.getData().add(new XYChart.Data("Februar", 8));
+	        series.getData().add(new XYChart.Data("März", 15));
+	        
+	        series.getData().add(new XYChart.Data("April", 20));
+	        series.getData().add(new XYChart.Data("Mai", 25));
+	        series.getData().add(new XYChart.Data("Juni", 20));
+	        series.getData().add(new XYChart.Data("Juli", 18));
+	        series.getData().add(new XYChart.Data("August", 14));
+	        series.getData().add(new XYChart.Data("September", 9));
+	        series.getData().add(new XYChart.Data("Oktober", 8));
+	        series.getData().add(new XYChart.Data("November", 5));
+	        series.getData().add(new XYChart.Data("Dezember", 20));
+	        
+	        XYChart.Series series2 = new XYChart.Series();
+	        series2.setName("2018");
+	        series2.getData().add(new XYChart.Data("Januar", 7));
+	        series2.getData().add(new XYChart.Data("Februar", 8));
+	        series2.getData().add(new XYChart.Data("März", 12));
+	        series2.getData().add(new XYChart.Data("April", 22));
+	        series2.getData().add(new XYChart.Data("Mai", 26));
+	        series2.getData().add(new XYChart.Data("Juni", 10));
+	        series2.getData().add(new XYChart.Data("Juli", 12));
+	        series2.getData().add(new XYChart.Data("August", 16));
+	        series2.getData().add(new XYChart.Data("September", 9));
+	        series2.getData().add(new XYChart.Data("Oktober", 7));
+	        series2.getData().add(new XYChart.Data("November", 5));
+	        series2.getData().add(new XYChart.Data("Dezember", 25));
+	        
+    	        
+	        Scene diagram  = new Scene(lineChart,800,600);
+	        //lineChart.getData().addAll(series,series2);
+	        lineChart.getData().add(series);
+	        lineChart.getData().add(series2);
+	        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	        primaryStage.setScene(diagram);
+	        primaryStage.show();
+	}
+	
 
 }
