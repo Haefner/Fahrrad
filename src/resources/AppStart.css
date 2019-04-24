@@ -1,0 +1,30 @@
+/*
+ * Felix Berger
+ */
+* {
+    -fx-primary : #870d4c;
+    -fx-secondary : #FFFFFF;
+    -fx-primarytext : #FFFFFF;
+}
+
+/*
+ * Root-Element
+ */
+.root{
+    -fx-background-color: -fx-primary;
+}
+
+.button-round{
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-font-size: 12pt;
+}
+
+.button-round:hover{
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}

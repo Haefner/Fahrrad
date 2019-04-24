@@ -1,0 +1,47 @@
+	        final CategoryAxis xAxis = new CategoryAxis();
+	        final NumberAxis yAxis = new NumberAxis();
+	        //creating the chart
+	        
+	        xAxis.setLabel("Monat");
+	        yAxis.setLabel("Verkaufte Räder");
+	        final LineChart<String,Number> lineChart = new LineChart<String,Number>(xAxis,yAxis);
+			
+	        XYChart.Series series = new XYChart.Series();
+	        series.setName("2017");
+	        series.getData().add(new XYChart.Data("Januar", 10));
+	        series.getData().add(new XYChart.Data("Februar", 8));
+	        series.getData().add(new XYChart.Data("März", 15));
+	        
+	        series.getData().add(new XYChart.Data("April", 20));
+	        series.getData().add(new XYChart.Data("Mai", 25));
+	        series.getData().add(new XYChart.Data("Juni", 20));
+	        series.getData().add(new XYChart.Data("Juli", 18));
+	        series.getData().add(new XYChart.Data("August", 14));
+	        series.getData().add(new XYChart.Data("September", 9));
+	        series.getData().add(new XYChart.Data("Oktober", 8));
+	        series.getData().add(new XYChart.Data("November", 5));
+	        series.getData().add(new XYChart.Data("Dezember", 20));
+	        
+	        XYChart.Series series2 = new XYChart.Series();
+	        series2.setName("2018");
+	        series2.getData().add(new XYChart.Data("Januar", 7));
+	        series2.getData().add(new XYChart.Data("Februar", 8));
+	        series2.getData().add(new XYChart.Data("März", 12));
+	        series2.getData().add(new XYChart.Data("April", 22));
+	        series2.getData().add(new XYChart.Data("Mai", 26));
+	        series2.getData().add(new XYChart.Data("Juni", 10));
+	        series2.getData().add(new XYChart.Data("Juli", 12));
+	        series2.getData().add(new XYChart.Data("August", 16));
+	        series2.getData().add(new XYChart.Data("September", 9));
+	        series2.getData().add(new XYChart.Data("Oktober", 7));
+	        series2.getData().add(new XYChart.Data("November", 5));
+	        series2.getData().add(new XYChart.Data("Dezember", 25));
+	        
+       	        
+	        Scene diagram  = new Scene(lineChart,800,600);
+	        //lineChart.getData().addAll(series,series2);
+	        lineChart.getData().add(series);
+	        lineChart.getData().add(series2);
+	        
+	        stage.setScene(diagram);
+	        stage.show();

@@ -38,7 +38,7 @@ public class LoginController {
 	};
 	
 	@FXML
-	public void handleLoginButtonOnAction(Event e) {
+	public void handleLoginButtonOnAction(ActionEvent e) {
 		if ((benutzer.getText().equals("Admin")) & (passwort.getText().equals("Admin"))) {
 
 			Stage primaryStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
